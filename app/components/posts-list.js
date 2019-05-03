@@ -4,7 +4,7 @@ export default Component.extend({
   ajax: Ember.inject.service(),
   posts: [],
   current: 0,
-  getData() {
+  getPosts() {
     this.get("ajax")
       .request(
         `http://jsonplaceholder.typicode.com/posts?_start=${
@@ -15,16 +15,16 @@ export default Component.extend({
   },
   init() {
     this._super(...arguments);
-    this.getData();
+    this.getPosts();
   },
   actions: {
     getNext() {
       this.current += 15;
-      this.getData();
+      this.getPosts();
     },
     getPrev() {
       this.current -= 15;
-      this.getData();
+      this.getPosts();
     },
     setPost(post) {
       this.clickPost(post);

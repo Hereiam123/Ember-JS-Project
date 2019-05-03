@@ -1,5 +1,4 @@
 <div class="jumbo">
-  <div class="right tomster"></div>
   <h2>
     Welcome!
   </h2>
@@ -7,4 +6,12 @@
     We hope you find exactly what you're looking for in posts
   </p>
   {{posts-list clickPost=(action "getPost")}}
+  {{#esp-menu position="left" open=showLeftSlideMenu}}
+    <h3>
+      {{currentPost.title}}
+    </h3>
+    <h3>
+      {{currentPostUser.name}}
+    </h3>
+  {{/esp-menu}}
 </div>
