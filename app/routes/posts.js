@@ -1,7 +1,3 @@
 import Route from "@ember/routing/route";
 
-export default Route.extend({
-  beforeModel() {
-    this.replaceWith("posts");
-  }
-});
+export default Route.extend({});

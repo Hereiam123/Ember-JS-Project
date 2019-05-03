@@ -1,0 +1,15 @@
+{{#each posts as |post|}}
+  <article class="listing">
+    <div class="title">
+      <button {{action "setPost" post}}>
+        {{post.title}}
+      </button>
+    </div>
+  </article>
+{{/each}}
+<button {{action "getPrev"}}>
+  Prev
+</button>
+<button {{action "getNext"}}>
+  Next
+</button>
