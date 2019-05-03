@@ -1,0 +1,23 @@
+$font-stack: Helvetica, sans-serif;
+$primary-color: #333;
+
+body {
+  font: 100% $font-stack;
+  color: $primary-color;
+}
+
+.my-custom-menu {
+  background: white;
+  h3 {
+    color: blue;
+    font-size: 1.9em;
+    padding: 20px;
+    margin: 0;
+    font-weight: 300;
+    background: maroon;
+  }
+}
+
+.no-click {
+  pointer-events: none;
+}

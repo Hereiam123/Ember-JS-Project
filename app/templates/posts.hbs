@@ -5,8 +5,17 @@
   <p>
     We hope you find exactly what you're looking for in posts
   </p>
-  {{posts-list clickPost=(action "getPost")}}
-  {{#esp-menu position="left" open=showLeftSlideMenu}}
+  <div class={{notClick}}>
+    {{posts-list clickPost=(action "getPost")}}
+  </div>
+  {{#esp-menu
+    position="left"
+    open=showLeftSlideMenu
+    customClasses="my-custom-menu"
+  }}
+    <button {{action "hideMenu"}}>
+      X
+    </button>
     <h3>
       {{currentPost.title}}
     </h3>
