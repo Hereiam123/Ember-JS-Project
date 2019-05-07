@@ -1,9 +1,16 @@
 <div class="min-h-full">
+  <div>
+    Posts number
+    {{this.current}}
+    -
+    {{this.end}}
+  </div>
+  <br />
   <div class="{{if this.onLoading "loader" "hide"}}"></div>
   <div class={{if this.onLoading "hide"}}>
     {{#each posts as |post|}}
       <article class="post" {{action "setPost" post}}>
-        {{post.title}}
+        {{capitalize post.title}}
       </article>
     {{/each}}
     <button class="btn-blue" {{action "getPrev"}}>
