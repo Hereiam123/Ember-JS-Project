@@ -4,39 +4,38 @@ export default Component.extend({
   ajax: Ember.inject.service(),
   posts: [],
   current: 0,
-  onLoading: "loading",
-  hidePrev: true,
-  hideNext: false,
-  getPosts(current, decOrInc) {
-    this.set("onLoading", "loading");
+  paginateLength: 0,
+  onLoading: false,
+  getPosts(start = 0, decOrInc = "") {
+    this.set("onLoading", true);
     this.get("ajax")
       .request(
-        `http://jsonplaceholder.typicode.com/posts?_start=${current}&_limit=15`
+        `http://jsonplaceholder.typicode.com/posts?_start=${start}&_limit=15`
       )
       .then(data => {
         if (data.length > 0) {
           this.set("posts", data);
-          decOrInc();
+          this.paginateLength = data.length;
+          if (decOrInc == "inc") {
+            this.current += data.length;
+          } else if (decOrInc == "dec") {
+            this.current -= data.length;
+          }
         }
-        if (data.length < 15) {
-          this.set("hideNext", true);
-        }
-        this.set("onLoading", "notLoading");
+        this.set("onLoading", false);
       });
   },
   init() {
     this._super(...arguments);
-    this.getPosts(this.current, () => (this.current += 0));
+    this.getPosts();
   },
   actions: {
     getNext() {
-      this.getPosts(this.current, () => (this.current += 15));
-      this.set("hidePrev", false);
+      this.getPosts(this.current + this.paginateLength, "inc");
     },
     getPrev() {
-      this.getPosts(this.current, () => (this.current -= 15));
-      if (this.current <= 0) {
-        this.set("hidePrev", true);
+      if (this.current > 0) {
+        this.getPosts(this.current - this.paginateLength, "dec");
       }
     },
     setPost(post) {
