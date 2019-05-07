@@ -6,7 +6,7 @@ export default Controller.extend({
   showLeftSlideMenu: false,
   currentPost: EmberObject.create(),
   currentPostUser: EmberObject.create(),
-  notClick: "",
+  notClick: false,
   actions: {
     getPost(post) {
       this.get("ajax")
@@ -15,12 +15,12 @@ export default Controller.extend({
           data ? this.currentPostUser.setProperties({ ...data }) : null;
           this.currentPost.setProperties({ ...post });
           this.toggleProperty("showLeftSlideMenu");
-          this.set("notClick", "no-click");
+          this.set("notClick", true);
         });
     },
     hideMenu() {
       this.toggleProperty("showLeftSlideMenu");
-      this.set("notClick", "");
+      this.set("notClick", false);
     }
   }
 });

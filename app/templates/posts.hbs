@@ -5,7 +5,7 @@
   <p>
     We hope you find exactly what you're looking for in posts
   </p>
-  <div class={{notClick}}>
+  <div class={{if this.notClick "no-click"}}>
     {{posts-list clickPost=(action "getPost")}}
   </div>
   {{#esp-menu
