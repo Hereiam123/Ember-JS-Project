@@ -1,7 +1,8 @@
 <div class="container mx-auto">
-  <p>
+  <h1>
     We hope you find exactly what you're looking for in posts
-  </p>
+  </h1>
+  <br />
   <div class={{if this.notClick "no-click"}}>
     {{posts-list clickPost=(action "getPost")}}
   </div>
@@ -20,26 +21,50 @@
     <br />
     <div>
       <h3>
+        This Post Created By:
         {{currentPostUser.name}}
       </h3>
       <p>
+        Username:
         {{currentPostUser.username}}
       </p>
       <p>
+        Email:
         {{currentPostUser.email}}
       </p>
       <p>
-        {{currentPostUser.address}}
+        Address:
+        {{currentPostUser.address.street}}
+        ,
+        {{currentPostUser.address.suite}}
+        ,
+        {{currentPostUser.address.city}}
+        {{currentPostUser.address.zipcode}}
       </p>
       <p>
+        Phone:
         {{currentPostUser.phone}}
       </p>
       <p>
+        Website:
         {{currentPostUser.website}}
       </p>
-      <p>
-        {{currentPostUser.company}}
-      </p>
+      <br />
+      <div>
+        <h4>
+          Company:
+        </h4>
+        Name:
+        <p>
+          {{currentPostUser.company.name}}
+        </p>
+        <p>
+          {{currentPostUser.company.catchPhrase}}
+        </p>
+        <p>
+          {{currentPostUser.company.bs}}
+        </p>
+      </div>
     </div>
   </div>
 </div>

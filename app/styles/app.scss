@@ -16,9 +16,9 @@ body {
   top: 0; /* Stay at the top */
   left: -50%;
   background-color: white; /* Black*/
-  box-shadow: 0 0px 10px black;
+
   overflow: hidden; /* Disable horizontal scroll */
-  padding-top: 10px; /* Place content 60px from the top */
+  padding: 10px; /* Place content 60px from the top */
   transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
 
   .closebtn {
@@ -31,7 +31,7 @@ body {
 }
 
 .sidenav.open {
-  white-space: normal;
+  box-shadow: 0 0px 10px black;
   left: 0%;
   right: 50%;
 }
