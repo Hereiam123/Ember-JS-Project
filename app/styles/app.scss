@@ -1,9 +1,11 @@
+@import "tailwind";
+@import "ember-cli-loaders/loaders";
+
 $font-stack: Helvetica, sans-serif;
-$primary-color: #333;
 
 body {
   font: 100% $font-stack;
-  color: $primary-color;
+  background-color: lightblue;
 }
 
 .my-custom-menu {
@@ -20,4 +22,17 @@ body {
 
 .no-click {
   pointer-events: none;
+}
+
+.loading {
+  display: block;
+  color: black;
+}
+
+.notLoading {
+  display: none;
+}
+
+.hide {
+  display: none;
 }

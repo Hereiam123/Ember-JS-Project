@@ -1,15 +1,14 @@
+{{loader-ball-pulse class=onLoading}}
 {{#each posts as |post|}}
-  <article class="listing">
-    <div class="title">
-      <button {{action "setPost" post}}>
-        {{post.title}}
-      </button>
-    </div>
+  <article class="post">
+    <button {{action "setPost" post}}>
+      {{post.title}}
+    </button>
   </article>
 {{/each}}
-<button {{action "getPrev"}}>
+<button class="btn-blue {{if this.hidePrev "hide"}}" {{action "getPrev"}}>
   Prev
 </button>
-<button {{action "getNext"}}>
+<button class="btn-blue {{if this.hideNext "hide"}}" {{action "getNext"}}>
   Next
 </button>

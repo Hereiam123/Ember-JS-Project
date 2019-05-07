@@ -16,7 +16,6 @@ export default Controller.extend({
           this.currentPost.setProperties({ ...post });
           this.toggleProperty("showLeftSlideMenu");
           this.set("notClick", "no-click");
-          console.log(this.notClick);
         });
     },
     hideMenu() {
