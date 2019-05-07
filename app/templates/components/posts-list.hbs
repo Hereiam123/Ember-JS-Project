@@ -1,8 +1,8 @@
 {{loader-ball-pulse class=(if this.onLoading "loading" "hide")}}
 <div class={{if this.onLoading "hide"}}>
   {{#each posts as |post|}}
-    <article class="post">
-      <button {{action "setPost" post}}>
+    <article class="font-bold h-10 border-grey-dark text-white">
+      <button class="border-grey-dark" {{action "setPost" post}}>
         {{post.title}}
       </button>
     </article>

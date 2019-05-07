@@ -8,16 +8,32 @@ body {
   background-color: lightblue;
 }
 
-.my-custom-menu {
-  background: white;
-  h3 {
-    color: blue;
-    font-size: 1.9em;
-    padding: 20px;
-    margin: 0;
-    font-weight: 300;
-    background: maroon;
+.sidenav {
+  height: 100%; /* 100% Full-height */
+  width: 50%; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: -50%;
+  background-color: white; /* Black*/
+  box-shadow: 0 0px 10px black;
+  overflow: hidden; /* Disable horizontal scroll */
+  padding-top: 10px; /* Place content 60px from the top */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+
+  .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
   }
+}
+
+.sidenav.open {
+  white-space: normal;
+  left: 0%;
+  right: 50%;
 }
 
 .no-click {

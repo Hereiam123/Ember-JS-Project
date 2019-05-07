@@ -1,3 +1,3 @@
 .post {
-  @apply .text-white .font-bold .h-10;
+  @apply font-bold h-10 border-grey-dark text-white;
 }

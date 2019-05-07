@@ -1,26 +1,45 @@
-<div class="jumbo">
-  <h1>
-    Welcome!
-  </h1>
+<div class="container mx-auto">
   <p>
     We hope you find exactly what you're looking for in posts
   </p>
   <div class={{if this.notClick "no-click"}}>
     {{posts-list clickPost=(action "getPost")}}
   </div>
-  {{#esp-menu
-    position="left"
-    open=showLeftSlideMenu
-    customClasses="my-custom-menu"
-  }}
+  <div id="mySidenav" class="sidenav {{if this.showSlideInfo "open"}}">
     <button {{action "hideMenu"}}>
       X
     </button>
-    <h3>
-      {{currentPost.title}}
-    </h3>
-    <h3>
-      {{currentPostUser.name}}
-    </h3>
-  {{/esp-menu}}
+    <div>
+      <h3>
+        {{currentPost.title}}
+      </h3>
+      <p>
+        {{currentPost.body}}
+      </p>
+    </div>
+    <br />
+    <div>
+      <h3>
+        {{currentPostUser.name}}
+      </h3>
+      <p>
+        {{currentPostUser.username}}
+      </p>
+      <p>
+        {{currentPostUser.email}}
+      </p>
+      <p>
+        {{currentPostUser.address}}
+      </p>
+      <p>
+        {{currentPostUser.phone}}
+      </p>
+      <p>
+        {{currentPostUser.website}}
+      </p>
+      <p>
+        {{currentPostUser.company}}
+      </p>
+    </div>
+  </div>
 </div>
