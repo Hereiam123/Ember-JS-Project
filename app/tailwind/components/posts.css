@@ -1,7 +1,7 @@
 .post {
-  @apply mb-5 bg-grey-light rounded-lg shadow-md;
+  @apply mb-5 bg-teal-lightest rounded-lg shadow-md text-center;
 }
 
 .post:hover {
-  @apply shadow-lg;
+  @apply bg-teal-lighter shadow-lg;
 }

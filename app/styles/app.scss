@@ -1,11 +1,15 @@
 @import "ember-cli-loaders/loaders";
 @import "tailwind";
 
-$font-stack: Helvetica, sans-serif;
+$font-stack: "Arvo", serif;
 
 body {
   font: 100% $font-stack;
   background-color: white;
+}
+
+nav {
+  box-shadow: 0px 2px 2px grey;
 }
 
 .sidenav {
@@ -119,4 +123,8 @@ body {
 .post {
   cursor: pointer;
   padding: 10px;
+}
+
+h4 {
+  font-size: 1rem;
 }

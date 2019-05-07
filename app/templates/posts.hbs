@@ -3,8 +3,8 @@
     {{posts-list clickPost=(action "getPost")}}
   </div>
   <div id="mySidenav" class="sidenav {{if this.showSlideInfo "open"}}">
-    <button {{action "hideMenu"}}>
-      X
+    <button class="btn-indigo" {{action "hideMenu"}}>
+      Close
     </button>
     <div>
       <h3>
@@ -16,10 +16,10 @@
     </div>
     <br />
     <div>
-      <h3>
+      <h4>
         This Post Created By:
         {{currentPostUser.name}}
-      </h3>
+      </h4>
       <p>
         Username:
         {{currentPostUser.username}}
