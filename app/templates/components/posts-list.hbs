@@ -1,4 +1,4 @@
-{{loader-ball-pulse class=(if this.onLoading "loading" "notLoading")}}
+{{loader-ball-pulse class=(if this.onLoading "loading" "hide")}}
 <div class={{if this.onLoading "hide"}}>
   {{#each posts as |post|}}
     <article class="post">
@@ -7,10 +7,10 @@
       </button>
     </article>
   {{/each}}
-  <button class="btn-blue {{if this.hidePrev "hide"}}" {{action "getPrev"}}>
+  <button class="btn-blue" {{action "getPrev"}}>
     Prev
   </button>
-  <button class="btn-blue {{if this.hideNext "hide"}}" {{action "getNext"}}>
+  <button class="btn-blue" {{action "getNext"}}>
     Next
   </button>
 </div>

@@ -10,7 +10,7 @@ export default Component.extend({
     this.set("onLoading", true);
     this.get("ajax")
       .request(
-        `http://jsonplaceholder.typicode.com/posts?_start=${start}&_limit=15`
+        `http://jsonplaceholder.typicode.com/posts?_start=${start}&_limit=10`
       )
       .then(data => {
         if (data.length > 0) {
