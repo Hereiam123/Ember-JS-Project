@@ -1,3 +1,7 @@
 .post {
-  @apply font-bold h-10 border-grey-dark text-white;
+  @apply mb-5 bg-grey-light rounded-lg shadow-md;
+}
+
+.post:hover {
+  @apply shadow-lg;
 }

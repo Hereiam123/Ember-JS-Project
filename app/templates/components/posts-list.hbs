@@ -1,16 +1,16 @@
-{{loader-ball-pulse class=(if this.onLoading "loading" "hide")}}
-<div class={{if this.onLoading "hide"}}>
-  {{#each posts as |post|}}
-    <article class="font-bold h-10 border-grey-dark text-white">
-      <button class="border-grey-dark" {{action "setPost" post}}>
+<div class="min-h-full">
+  <div class="{{if this.onLoading "loader" "hide"}}"></div>
+  <div class={{if this.onLoading "hide"}}>
+    {{#each posts as |post|}}
+      <article class="post" {{action "setPost" post}}>
         {{post.title}}
-      </button>
-    </article>
-  {{/each}}
-  <button class="btn-blue" {{action "getPrev"}}>
-    Prev
-  </button>
-  <button class="btn-blue" {{action "getNext"}}>
-    Next
-  </button>
+      </article>
+    {{/each}}
+    <button class="btn-blue" {{action "getPrev"}}>
+      Prev
+    </button>
+    <button class="btn-blue" {{action "getNext"}}>
+      Next
+    </button>
+  </div>
 </div>

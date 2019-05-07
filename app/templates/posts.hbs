@@ -1,9 +1,9 @@
-<div class="container mx-auto">
+<div class="container mx-auto mt-2">
   <h1>
-    We hope you find exactly what you're looking for in posts
+    Post It!
   </h1>
   <br />
-  <div class={{if this.notClick "no-click"}}>
+  <div class="{{if this.notClick "no-click"}}">
     {{posts-list clickPost=(action "getPost")}}
   </div>
   <div id="mySidenav" class="sidenav {{if this.showSlideInfo "open"}}">
@@ -12,10 +12,10 @@
     </button>
     <div>
       <h3>
-        {{currentPost.title}}
+        {{capitalize currentPost.title}}
       </h3>
       <p>
-        {{currentPost.body}}
+        {{capitalize currentPost.body}}
       </p>
     </div>
     <br />
@@ -54,14 +54,16 @@
         <h4>
           Company:
         </h4>
-        Name:
         <p>
+          Name:
           {{currentPostUser.company.name}}
         </p>
         <p>
+          Motto:
           {{currentPostUser.company.catchPhrase}}
         </p>
         <p>
+          Objective:
           {{currentPostUser.company.bs}}
         </p>
       </div>
