@@ -1,0 +1,7 @@
+.sidenav{
+    @apply bg-pink-lightest
+}
+
+.sidenav h3,h4,p{
+    @apply text-center
+}

@@ -19,7 +19,6 @@ nav {
   z-index: 1;
   top: 0;
   left: -50%;
-  background-color: white;
 
   overflow: hidden;
   padding: 10px;
@@ -37,6 +36,10 @@ nav {
     box-shadow: 0 0px 10px black;
     left: 0%;
     right: 50%;
+  }
+
+  div{
+    margin: 10px 0 10px 0;
   }
 }
 
