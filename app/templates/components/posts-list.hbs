@@ -1,15 +1,23 @@
-{{#each posts as |post|}}
-  <article class="listing">
-    <div class="title">
-      <button {{action "setPost" post}}>
-        {{post.title}}
-      </button>
-    </div>
-  </article>
-{{/each}}
-<button {{action "getPrev"}}>
-  Prev
-</button>
-<button {{action "getNext"}}>
-  Next
-</button>
+<div class="min-h-full">
+  <div class="mt-2">
+    Posts numbers
+    {{this.current}}
+    -
+    {{this.end}}
+  </div>
+  <br />
+  <div class="{{if this.onLoading "loader" "hide"}}"></div>
+  <div class={{if this.onLoading "hide"}}>
+    {{#each posts as |post|}}
+      <article class="post" {{action "setPost" post}}>
+        {{capitalize post.title}}
+      </article>
+    {{/each}}
+    <button class="btn-blue" {{action "getPrev"}}>
+      Prev
+    </button>
+    <button class="btn-blue" {{action "getNext"}}>
+      Next
+    </button>
+  </div>
+</div>

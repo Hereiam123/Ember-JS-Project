@@ -1,17 +1,35 @@
 import Component from "@ember/component";
+import { inject } from "@ember/service";
 
 export default Component.extend({
-  ajax: Ember.inject.service(),
+  ajax: inject(),
   posts: [],
   current: 0,
-  getPosts() {
+  end: 0,
+  paginateLength: 0,
+  onLoading: false,
+  getPosts(start = 0, decOrInc = "") {
+    this.set("onLoading", true);
     this.get("ajax")
       .request(
-        `http://jsonplaceholder.typicode.com/posts?_start=${
-          this.current
-        }&_limit=15`
+        `http://jsonplaceholder.typicode.com/posts?_start=${start}&_limit=10`
       )
-      .then(data => (data.length > 0 ? this.set("posts", data) : null));
+      .then(data => {
+        if (data.length > 0) {
+          this.set("posts", data);
+          this.paginateLength = data.length;
+          let current = 0;
+          if (decOrInc == "inc") {
+            current = this.current + data.length;
+          } else if (decOrInc == "dec") {
+            current = this.current - data.length;
+          }
+          this.set("current", current);
+          this.set("end", current + 10);
+        }
+
+        setTimeout(() => this.set("onLoading", false), 700);
+      });
   },
   init() {
     this._super(...arguments);
@@ -19,12 +37,12 @@ export default Component.extend({
   },
   actions: {
     getNext() {
-      this.current += 15;
-      this.getPosts();
+      this.getPosts(this.current + this.paginateLength, "inc");
     },
     getPrev() {
-      this.current -= 15;
-      this.getPosts();
+      if (this.current > 0) {
+        this.getPosts(this.current - this.paginateLength, "dec");
+      }
     },
     setPost(post) {
       this.clickPost(post);

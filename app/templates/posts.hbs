@@ -1,17 +1,66 @@
-<div class="jumbo">
-  <h2>
-    Welcome!
-  </h2>
-  <p>
-    We hope you find exactly what you're looking for in posts
-  </p>
-  {{posts-list clickPost=(action "getPost")}}
-  {{#esp-menu position="left" open=showLeftSlideMenu}}
-    <h3>
-      {{currentPost.title}}
-    </h3>
-    <h3>
-      {{currentPostUser.name}}
-    </h3>
-  {{/esp-menu}}
+<div class="container mx-auto mt-2">
+  <div class="{{if this.notClick "no-click"}}">
+    {{posts-list clickPost=(action "getPost")}}
+  </div>
+  <div id="mySidenav" class="sidenav {{if this.showSlideInfo "open"}}">
+    <button class="btn-indigo" {{action "hideMenu"}}>
+      Close
+    </button>
+    <div>
+      <h3 class="text-pink-darker">
+        Post Title:
+        {{capitalize currentPost.title}}
+      </h3>
+      <p>
+        {{capitalize currentPost.body}}
+      </p>
+    </div>
+    <br />
+    <div>
+      <h4 class="text-pink-darker">
+        This Post Created By:
+        {{currentPostUser.name}}
+      </h4>
+      <p>
+        Username:
+        {{currentPostUser.username}}
+      </p>
+      <p>
+        Email:
+        {{currentPostUser.email}}
+      </p>
+      <p>
+        Address:
+        {{currentPostUser.address.street}}
+        ,
+        {{currentPostUser.address.suite}}
+        ,
+        {{currentPostUser.address.city}}
+        {{currentPostUser.address.zipcode}}
+      </p>
+      <p>
+        Phone:
+        {{currentPostUser.phone}}
+      </p>
+      <p>
+        Website:
+        {{currentPostUser.website}}
+      </p>
+      <br />
+      <div>
+        <h4 class="text-pink-darker">
+          Company:
+          {{currentPostUser.company.name}}
+        </h4>
+        <p>
+          Motto:
+          {{currentPostUser.company.catchPhrase}}
+        </p>
+        <p>
+          Objective:
+          {{currentPostUser.company.bs}}
+        </p>
+      </div>
+    </div>
+  </div>
 </div>

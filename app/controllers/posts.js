@@ -3,9 +3,10 @@ import EmberObject from "@ember/object";
 
 export default Controller.extend({
   ajax: Ember.inject.service(),
-  showLeftSlideMenu: false,
+  showSlideInfo: false,
   currentPost: EmberObject.create(),
   currentPostUser: EmberObject.create(),
+  notClick: false,
   actions: {
     getPost(post) {
       this.get("ajax")
@@ -13,8 +14,13 @@ export default Controller.extend({
         .then(data => {
           data ? this.currentPostUser.setProperties({ ...data }) : null;
           this.currentPost.setProperties({ ...post });
-          this.toggleProperty("showLeftSlideMenu");
+          this.toggleProperty("showSlideInfo");
+          this.set("notClick", true);
         });
+    },
+    hideMenu() {
+      this.toggleProperty("showSlideInfo");
+      this.set("notClick", false);
     }
   }
 });
